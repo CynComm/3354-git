@@ -5,9 +5,15 @@ public class Main {
     public static void main(String[] args) {
         try {
             int result = addArguments(args);
+			if (args.length==0)
+				throw new ArrayIndexOutOfBoundsException
             System.out.println(result);
-        } catch (Exception e) {
+        }
+		catch (ArrayIndexOutOfBoundsException e) {
             System.err.println("Please provide three integers to add");
+        }
+		catch (NumberFormatException n) {
+            System.err.println("Arguments are not proper format");
         }
     }
 
