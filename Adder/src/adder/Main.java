@@ -18,6 +18,20 @@ public class Main {
     }
 
     private static int addArguments(String[] args) {
-        return Integer.valueOf(args[0]) + Integer.valueOf(args[1])+ Integer.valueOf(args[2]);
+       boolean negative=false;
+	   int index=0,sum=0;
+       if(args[0].equals("-"))
+       {
+           negative=true;
+           index=1;
+       }
+       for(int x=index;x<args.length;x++){
+           if(negative==false)
+               sum+=Integer.valueOf(args[x]) ;
+           if(negative==true)
+               sum-=Integer.valueOf(args[x]) ;
+
+       }
+       return sum;
     }
 }
